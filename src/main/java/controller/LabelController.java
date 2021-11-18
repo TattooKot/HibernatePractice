@@ -5,6 +5,7 @@ import repository.hibernate.HibernateLabelRepositoryImpl;
 import service.LabelService;
 
 import java.util.List;
+import java.util.Objects;
 
 public class LabelController {
     private final LabelService service = new LabelService(new HibernateLabelRepositoryImpl());
@@ -18,6 +19,9 @@ public class LabelController {
     }
 
     public Label create(Label label){
+        if(Objects.isNull(label)){
+            throw new NullPointerException("Label null in controller");
+        }
         return service.create(label);
     }
 

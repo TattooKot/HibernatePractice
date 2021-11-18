@@ -92,7 +92,7 @@ public class LabelView {
     private String getNameFromConsole(){
         System.out.println("Enter label name:");
         Scanner scanner = new Scanner(System.in);
-        String name = scanner.nextLine();
+        String name = scanner.nextLine().trim();
 
         if(name.isEmpty()){
             System.out.println("Name can`t be empty, try again");
