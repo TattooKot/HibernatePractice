@@ -2,6 +2,7 @@ package service;
 
 import model.Label;
 import model.Post;
+import model.Writer;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -17,6 +18,7 @@ public class Utils {
     private static void config(){
         configuration.addAnnotatedClass(Label.class);
         configuration.addAnnotatedClass(Post.class);
+        configuration.addAnnotatedClass(Writer.class);
         sessionFactory = configuration.buildSessionFactory();
     }
 

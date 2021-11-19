@@ -4,6 +4,7 @@ import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.Objects;
 
 @Table(name = "posts")
 @Entity
@@ -29,6 +30,9 @@ public class Post {
     @OneToMany(fetch = FetchType.EAGER)
     private List<Label> labels = new ArrayList<>();
 
+    public Post() {
+    }
+
     @Override
     public String toString() {
         return "id: " + id +
@@ -38,6 +42,19 @@ public class Post {
                 "Status: " + status + '\n' +
                 "Labels: " + labels +
                 "\n==================\n";
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Post post = (Post) o;
+        return id.equals(post.id) && content.equals(post.content) && created.equals(post.created) && updated.equals(post.updated) && status == post.status && labels.equals(post.labels);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, content, created, updated, status, labels);
     }
 
     public List<Label> getLabels() {

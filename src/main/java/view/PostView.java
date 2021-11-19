@@ -100,7 +100,7 @@ public class PostView {
         Scanner scanner = new Scanner(System.in);
         String stringId = scanner.nextLine();
 
-        if(!stringId.matches("\\d*")){
+        if(!stringId.matches("\\d*") || stringId.isEmpty()){
             return -1;
         }
 
@@ -150,6 +150,10 @@ public class PostView {
             Label label = labelService.getById(labelId);
             if(Objects.isNull(label)){
                 System.out.println("Label does not exist try again");
+                continue;
+            }
+            if(labels.contains(label)){
+                System.out.println("Label already added");
                 continue;
             }
             labels.add(label);

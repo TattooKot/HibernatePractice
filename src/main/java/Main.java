@@ -1,8 +1,8 @@
 import org.hibernate.Session;
-import repository.hibernate.HibernatePostRepositoryImpl;
 import service.Utils;
 import view.LabelView;
 import view.PostView;
+import view.WriterView;
 
 import java.util.Scanner;
 
@@ -13,6 +13,7 @@ public class Main {
 
         LabelView labelView = new LabelView();
         PostView postView = new PostView();
+        WriterView writerView = new WriterView();
 
         System.out.println("Enter command:");
         Scanner scanner = new Scanner(System.in);
@@ -32,6 +33,12 @@ public class Main {
                 case "create post" -> postView.createPost();
                 case "update post" -> postView.updatePostById();
                 case "delete post" -> postView.deletePostById();
+                //writers commands
+                case "get all writers" -> writerView.getAllWriters();
+                case "create writer" -> writerView.createNewWriter();
+                case "get writer by id" -> writerView.getWriterById();
+                case "update writer" -> writerView.updateWriterById();
+                case "delete writer" -> writerView.deleteWriterById();
             }
         }
     }
