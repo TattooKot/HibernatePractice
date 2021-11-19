@@ -1,0 +1,1 @@
+alter table posts_labels rename label_id to labels_id;

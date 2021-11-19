@@ -1,8 +1,8 @@
 package model;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @Table(name = "posts")
@@ -18,27 +18,26 @@ public class Post {
     private String content;
 
     @Column(name = "created", nullable = false)
-    private LocalDate created;
+    private Date created;
 
     @Column(name = "updated", nullable = false)
-    private LocalDate updated;
+    private Date updated;
 
     @Column(name = "status")
-    private Integer status;
+    private PostStatus status;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Label> labels = new ArrayList<>();
 
     @Override
     public String toString() {
-        return "Post{" +
-                "id=" + id +
-                ", content='" + content + '\'' +
-                ", created=" + created +
-                ", updated=" + updated +
-                ", status=" + status +
-                ", labels=" + labels +
-                '}';
+        return "id: " + id +
+                "\nContent: " + content + '\n' +
+                "Created: " + created + '\n' +
+                "Updated: " + updated + '\n' +
+                "Status: " + status + '\n' +
+                "Labels: " + labels +
+                "\n==================\n";
     }
 
     public List<Label> getLabels() {
@@ -49,27 +48,27 @@ public class Post {
         this.labels = labels;
     }
 
-    public Integer getStatus() {
+    public PostStatus getStatus() {
         return status;
     }
 
-    public void setStatus(Integer status) {
+    public void setStatus(PostStatus status) {
         this.status = status;
     }
 
-    public LocalDate getUpdated() {
+    public Date getUpdated() {
         return updated;
     }
 
-    public void setUpdated(LocalDate updated) {
+    public void setUpdated(Date updated) {
         this.updated = updated;
     }
 
-    public LocalDate getCreated() {
+    public Date getCreated() {
         return created;
     }
 
-    public void setCreated(LocalDate created) {
+    public void setCreated(Date created) {
         this.created = created;
     }
 
