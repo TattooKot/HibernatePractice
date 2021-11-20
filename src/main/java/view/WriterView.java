@@ -63,36 +63,36 @@ public class WriterView {
         }
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println(""" 
-                            What you wanna change?:
-                            1. First name
-                            2. Last name
-                            3. Post list
-                                """);
+        System.out.println("What you wanna change?:\n" +
+                "1. First name\n" +
+                "2. Last name\n" +
+                "3. Post list");
         String param = scanner.nextLine();
 
         switch (param){
-            case "1" -> {
+            case "1" :
                 System.out.println("Enter first name:");
                 String firstName = getParamFromConsole();
                 if(Objects.isNull(firstName)){
                     return;
                 }
                 writer.setFirstname(firstName);
-            }
-            case "2" -> {
+                break;
+            case "2":
                 System.out.println("Enter last name:");
                 String lastName = getParamFromConsole();
                 if(Objects.isNull(lastName)){
                     return;
                 }
                 writer.setLastname(lastName);
-            }
-            case "3" -> writer.setPosts(getPostListFromConsole());
-            default -> {
+                break;
+            case "3" :
+                writer.setPosts(getPostListFromConsole());
+                break;
+            default :
                 System.out.println("Wrong parameter try again");
                 return;
-            }
+
         }
 
         System.out.println("Writer updated:\n" + controller.update(writer));

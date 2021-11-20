@@ -50,35 +50,34 @@ public class PostView {
         }
 
         Scanner scanner = new Scanner(System.in);
-        System.out.println(""" 
-                            What you wanna change?:
-                            1. Content
-                            2. Post status
-                            3. Label list
-                                """);
+        System.out.println("What you wanna change?\n" +
+                "1. Content\n" +
+                "2. Post status\n" +
+                "3. Label list\n");
         String param = scanner.nextLine();
 
-        switch (param){
-            case "1" -> post.setContent(getContentFromConsole());
-            case "2" -> {
-                System.out.println(""" 
-                            What you wanna change?:
-                            0. Deleted
-                            1. Active
-                            2. Under review
-                                """);
+        switch (param) {
+            case "1":
+                post.setContent(getContentFromConsole());
+                break;
+            case "2":
+                System.out.println("What you wanna change?:\n" +
+                        "0. Deleted\n" +
+                        "1. Active\n" +
+                        "2. Under review");
                 int status = getIdFromConsole();
-                if(status == -1 || status > 2){
+                if (status == -1 || status > 2) {
                     System.out.println("Wrong parameter, try again");
                     return;
                 }
                 post.setStatus(PostStatus.values()[status]);
-            }
-            case "3" -> post.setLabels(getLabelListFromConsole());
-            default -> {
+                break;
+            case "3":
+                post.setLabels(getLabelListFromConsole());
+                break;
+            default:
                 System.out.println("Wrong parameter, try again");
                 return;
-            }
         }
 
         System.out.println("Post updated:\n" + controller.updatePost(post));
