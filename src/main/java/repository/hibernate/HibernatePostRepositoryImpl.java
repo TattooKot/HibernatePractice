@@ -11,7 +11,7 @@ public class HibernatePostRepositoryImpl implements PostRepository {
     @Override
     public List<Post> getAll() {
         Session session = Utils.getNewSession();
-        List posts = session.createQuery("FROM Post p join fetch p.labels").list();
+        List<Post> posts = (List<Post>) session.createQuery("FROM Post p join fetch p.labels").list();
         session.close();
         return posts;
     }
