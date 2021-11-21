@@ -27,7 +27,7 @@ public class Post {
     @Column(name = "status")
     private PostStatus status;
 
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany
     private List<Label> labels = new ArrayList<>();
 
     public Post() {

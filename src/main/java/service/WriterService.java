@@ -1,14 +1,14 @@
 package service;
 
 import model.Writer;
-import repository.hibernate.HibernateWriterRepositoryImpl;
+import repository.WriterRepository;
 
 import java.util.List;
 
 public class WriterService {
-    private final HibernateWriterRepositoryImpl repository;
+    private final WriterRepository repository;
 
-    public WriterService(HibernateWriterRepositoryImpl repository) {
+    public WriterService(WriterRepository repository) {
         this.repository = repository;
     }
 

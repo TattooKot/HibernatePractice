@@ -1,14 +1,14 @@
 package service;
 
 import model.Post;
-import repository.hibernate.HibernatePostRepositoryImpl;
+import repository.PostRepository;
 
 import java.util.List;
 
 public class PostService {
-    private final HibernatePostRepositoryImpl repository;
+    private final PostRepository repository;
 
-    public PostService(HibernatePostRepositoryImpl repository) {
+    public PostService(PostRepository repository) {
         this.repository = repository;
     }
 

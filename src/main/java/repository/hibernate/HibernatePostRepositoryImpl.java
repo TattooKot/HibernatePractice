@@ -11,8 +11,7 @@ public class HibernatePostRepositoryImpl implements PostRepository {
     @Override
     public List<Post> getAll() {
         Session session = Utils.getNewSession();
-        session.beginTransaction();
-        List<Post> posts = session.createQuery("select a from Post a", Post.class).list();
+        List posts = session.createQuery("FROM Post p join fetch p.labels").list();
         session.close();
         return posts;
     }
@@ -20,7 +19,6 @@ public class HibernatePostRepositoryImpl implements PostRepository {
     @Override
     public Post getById(Integer id) {
         Session session = Utils.getNewSession();
-        session.beginTransaction();
         Post post = session.get(Post.class, id);
         session.close();
         return post;

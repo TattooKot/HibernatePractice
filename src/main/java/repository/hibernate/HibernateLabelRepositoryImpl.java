@@ -12,7 +12,6 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
     @Override
     public List<Label> getAll() {
         Session session = Utils.getNewSession();
-        session.beginTransaction();
         List<Label> labels = session.createQuery("select a from Label a ", Label.class).list();
         session.close();
         return labels;
@@ -21,7 +20,6 @@ public class HibernateLabelRepositoryImpl implements LabelRepository {
     @Override
     public Label getById(Integer id) {
         Session session = Utils.getNewSession();
-        session.beginTransaction();
         Label label = session.get(Label.class, id);
         session.close();
         return label;

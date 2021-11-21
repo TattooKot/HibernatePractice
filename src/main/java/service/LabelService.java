@@ -1,14 +1,14 @@
 package service;
 
 import model.Label;
-import repository.hibernate.HibernateLabelRepositoryImpl;
+import repository.LabelRepository;
 
 import java.util.List;
 
 public class LabelService {
-    private final HibernateLabelRepositoryImpl repository;
+    private final LabelRepository repository;
 
-    public LabelService(HibernateLabelRepositoryImpl repository) {
+    public LabelService(LabelRepository repository) {
         this.repository = repository;
     }
 

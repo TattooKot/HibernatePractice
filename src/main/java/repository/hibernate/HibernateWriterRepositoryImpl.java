@@ -12,8 +12,7 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
     @Override
     public List<Writer> getAll() {
         Session session = Utils.getNewSession();
-        session.beginTransaction();
-        List<Writer> writers = session.createQuery("select a from Writer a", Writer.class).list();
+        List writers = session.createQuery("from Writer a join fetch a.posts").list();
         session.close();
         return writers;
     }
@@ -21,7 +20,6 @@ public class HibernateWriterRepositoryImpl implements WriterRepository {
     @Override
     public Writer getById(Integer id) {
         Session session = Utils.getNewSession();
-        session.beginTransaction();
         Writer writer = session.get(Writer.class, id);
         session.close();
         return writer;

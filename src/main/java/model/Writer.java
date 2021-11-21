@@ -22,29 +22,15 @@ public class Writer {
     @OneToMany
     private List<Post> posts = new ArrayList<>();
 
-    @ElementCollection(fetch = FetchType.EAGER)
-    @CollectionTable(name="writers_posts", joinColumns=@JoinColumn(name="writer_id"))
-    @Column(name="posts_id")
-    private List<Integer> postsIds = new ArrayList<>();
-
-
     @Override
     public String toString() {
         StringBuilder postsId = new StringBuilder();
-        postsIds.forEach(p -> postsId.append("Post: ").append(p).append("\n"));
+        posts.forEach(p -> postsId.append("Post: ").append(p.getId()).append("\n"));
 
         return "id: " + this.id + "\n" +
                 "name: " + firstname + ' ' + lastname + "\n" +
                 "posts:\n" + postsId +
                 "========\n";
-    }
-
-    public List<Integer> getPostsIds() {
-        return postsIds;
-    }
-
-    public void setPostsIds(List<Integer> postsIds) {
-        this.postsIds = postsIds;
     }
 
     public List<Post> getPosts() {
