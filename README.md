@@ -1,0 +1,1 @@
+[![Build Status](https://api.travis-ci.com/TattooKot/HibernatePractice.svg?branch=master)](https://app.travis-ci.com/github/TattooKot/HibernatePractice)
