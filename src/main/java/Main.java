@@ -21,21 +21,51 @@ public class Main {
 
         while (!(command = scanner.nextLine()).equals("q")){
             switch (command) {
-                case "get all labels" -> labelView.getAllLabels();
-                case "get label by id" -> labelView.getLabelById();
-                case "create label" -> labelView.createLabel();
-                case "update label" -> labelView.updateLabel();
-                case "delete label" -> labelView.deleteLabelById();
-                case "get all posts" -> postView.getAllPosts();
-                case "get post by id" -> postView.getPostById();
-                case "create post" -> postView.createPost();
-                case "update post" -> postView.updatePostById();
-                case "delete post" -> postView.deletePostById();
-                case "get all writers" -> writerView.getAllWriters();
-                case "create writer" -> writerView.createNewWriter();
-                case "get writer by id" -> writerView.getWriterById();
-                case "update writer" -> writerView.updateWriterById();
-                case "delete writer" -> writerView.deleteWriterById();
+                case "get all labels":
+                    labelView.getAllLabels();
+                    break;
+                case "get label by id":
+                    labelView.getLabelById();
+                    break;
+                case "create label":
+                    labelView.createLabel();
+                    break;
+                case "update label":
+                    labelView.updateLabel();
+                    break;
+                case "delete label":
+                    labelView.deleteLabelById();
+                    break;
+                case "get all posts":
+                    postView.getAllPosts();
+                    break;
+                case "get post by id":
+                    postView.getPostById();
+                    break;
+                case "create post":
+                    postView.createPost();
+                    break;
+                case "update post":
+                    postView.updatePostById();
+                    break;
+                case "delete post":
+                    postView.deletePostById();
+                    break;
+                case "get all writers":
+                    writerView.getAllWriters();
+                    break;
+                case "create writer":
+                    writerView.createNewWriter();
+                    break;
+                case "get writer by id":
+                    writerView.getWriterById();
+                    break;
+                case "update writer":
+                    writerView.updateWriterById();
+                    break;
+                case "delete writer":
+                    writerView.deleteWriterById();
+                    break;
             }
         }
     }
